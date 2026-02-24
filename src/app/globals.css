@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default Dark Theme (Black/Blue) */
+  --background: #000000;
+  --surface: #0A0A0F;
+  --surface-light: #12121A;
+  --surface-dark: #050505;
+
+  /* Blue Primary (Replacing Purple) */
+  --primary: #3B82F6;
+  /* Blue-500 */
+  --primary-rgb: 59, 130, 246;
+  --primary-dark: #2563EB;
+  /* Blue-600 */
+
+  /* Deep Blue/Indigo Secondary */
+  --secondary: #1D4ED8;
+  /* Blue-700 */
+  --secondary-rgb: 29, 78, 216;
+  --secondary-dark: #1E40AF;
+  /* Blue-800 */
+
+  /* Cyan/Sky Accent */
+  --accent: #38BDF8;
+  /* Sky-400 */
+  --accent-rgb: 56, 189, 248;
+
+  --text-main: #ffffff;
+  --text-muted: #94A3B8;
+  /* Slate-400 */
+
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(0, 0, 0, 0.4);
+
+  --highlight-bg: rgba(255, 255, 255, 0.05);
+  /* White tint for dark mode */
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl shadow-lg transition-colors duration-300;
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Helper utilities using vars */
+  .bg-surface {
+    background-color: var(--surface);
+  }
+
+  .bg-surface-light {
+    background-color: var(--surface-light);
+  }
+
+  .bg-surface-dark {
+    background-color: var(--surface-dark);
+  }
+
+  .text-gray-light {
+    color: var(--text-muted);
+  }
+
+  .shadow-neon {
+    box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.3), 0 0 60px rgba(var(--primary-rgb), 0.1);
+  }
+
+  .shadow-neon-purple {
+    /* Kept as "shadow-neon-secondary" effectively */
+    box-shadow: 0 0 30px rgba(var(--secondary-rgb), 0.3), 0 0 60px rgba(var(--secondary-rgb), 0.1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-light);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
